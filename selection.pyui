@@ -1,0 +1,54 @@
+[
+  {
+    "selected" : false,
+    "frame" : "{{0, 0}, {635, 818}}",
+    "class" : "View",
+    "nodes" : [
+      {
+        "selected" : false,
+        "frame" : "{{0, 0}, {635, 818}}",
+        "class" : "View",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "border_width" : 1,
+          "frame" : "{{268, 359}, {100, 100}}",
+          "border_color" : "RGBA(1.000000,0.498039,0.247059,1.000000)",
+          "corner_radius" : 0,
+          "class" : "View",
+          "uuid" : "7FD60C43-4672-4485-9A2C-9DA878B6EDF4",
+          "background_color" : "RGBA(0.086275,0.086275,0.321569,1.000000)",
+          "name" : "background"
+        }
+      },
+      {
+        "selected" : true,
+        "frame" : "{{263, 593}, {128, 50}}",
+        "class" : "Button",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "action" : "displayStart",
+          "frame" : "{{278, 393}, {80, 32}}",
+          "tint_color" : "RGBA(0.227451,0.227451,1.000000,1.000000)",
+          "title" : "START",
+          "uuid" : "D8D4BC1E-FADC-4302-9A64-5F1285F7AC9F",
+          "font_bold" : true,
+          "class" : "Button",
+          "background_color" : "RGBA(1.000000,0.498039,0.247059,1.000000)",
+          "name" : "start",
+          "font_size" : 20
+        }
+      }
+    ],
+    "attributes" : {
+      "enabled" : true,
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "flex" : ""
+    }
+  }
+]
