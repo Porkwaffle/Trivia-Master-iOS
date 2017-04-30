@@ -1,5 +1,23 @@
-import ui, json, requests, random, console
-	
+import ui, json, requests, random, console, time
+
+#Dummy variable to remember users last guess		
+lastGuess = ''
+
+def pressA(sender):
+	global lastGuess
+	lastGuess = 'A'
+
+def pressB(sender):
+	global lastGuess
+	lastGuess = 'B'
+
+def pressC(sender):
+	global lastGuess
+	lastGuess = 'C'
+
+def pressD(sender):
+	global lastGuess
+	lastGuess = 'D'
 	
 	#Escape HTML
 def format_text(text):
@@ -15,10 +33,11 @@ def format_text(text):
 	text = text.replace('&sup2;', '²')
 	return text
 
-#ui.load_view('selection').present('sheet')
+v = ui.load_view('Trivia')
+v.present('sheet')
 
-def displayStart(self):
-	v = ui.load_view('Trivia').present('sheet')
+def askQuestion():
+	global v
 	v['questionBox'].text = question
 	v['optionA'].text = options[0]
 	v['optionB'].text = options[1]
@@ -55,55 +74,38 @@ for i in range(10):
 		correct_letter = 'C'
 	elif options.index(correct_answer) == 3:
 		correct_letter = 'D'
-
-
-def pressA(sender):
-	global correct_letter
-	if correct_letter == 'A':
-		global score
-		score += 1
-		console.hud_alert('Correct!')
-	else:
-		console.hud_alert('Incorrect: ' + correct_answer, 'error')
+		
+	askQuestion()
 	
-	sender.superview['questionBox'].text = ''
-	sender.superview['optionA'].text = ''
-	sender.superview['optionB'].text = ''
-	sender.superview['optionC'].text = ''
-	sender.superview['optionD'].text = ''
-
-
-def pressB(sender):
-	global correct_letter
-	if correct_letter == 'B':
-		global score
+	#Wait for user to make a guess
+	while lastGuess == '':
+		time.sleep(1)
+	
+	#Determine if user guessed correctly
+	if correct_letter == lastGuess:
 		score += 1
 		console.hud_alert('Correct!')
 	else:
 		console.hud_alert('Incorrect: ' + correct_answer, 'error')
-
-def pressC(sender):
-	global correct_letter
-	if correct_letter == 'C':
-		global score
-		score += 1
-		console.hud_alert('Correct!')
-	else:
-		console.hud_alert('Incorrect: ' + correct_answer, 'error')
-
-def pressD(sender):
-	global correct_letter
-	if correct_letter == 'D':
-		global score
-		score += 1
-		console.hud_alert('Correct!')
-	else:
-		console.hud_alert('Incorrect: ' + correct_answer, 'error')
-
-v = ui.load_view()
-v['questionBox'].text = question
-v['optionA'].text = options[0]
-v['optionB'].text = options[1]
-v['optionC'].text = options[2]
-v['optionD'].text = options[3]
-v.present('sheet')
+	lastGuess = ''
+	
+def calculatePercent(per, whole):
+	return (int(per) / int(whole)) * 100
+ 
+v['questionBox'].text = 'Final Score: ' + str(score) + '/' + str(10) + '\n'
+percent = calculatePercent(score, 10)
+v['questionBox'].text += str(percent) + '%\n'
+if percent < 20.0:
+	v['questionBox'].text += 'Ouch, go back to school!'
+elif percent >= 20 and percent < 40.0:
+	v['questionBox'].text += 'Hideous!!'
+elif percent >= 40.0 and percent < 60.0:
+	v['questionBox'].text += 'You need to try harder'
+elif percent >= 60.0 and percent < 80.0:
+	v['questionBox'].text += 'Ehh you did alright'
+elif percent >= 80.0 and percent < 100.0:
+	v['questionBox'].text += 'So close, yet so far'
+elif percent == 100.0:
+	v['questionBox'].text += 'You are a Trivia Master!'
+		
+		

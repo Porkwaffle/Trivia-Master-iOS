@@ -96,7 +96,7 @@
         }
       },
       {
-        "selected" : false,
+        "selected" : true,
         "frame" : "{{132, 609}, {80, 56}}",
         "class" : "Button",
         "nodes" : [
@@ -223,7 +223,7 @@
         }
       },
       {
-        "selected" : true,
+        "selected" : false,
         "frame" : "{{229, 609}, {286, 56}}",
         "class" : "TextView",
         "nodes" : [
@@ -250,10 +250,10 @@
       }
     ],
     "attributes" : {
-      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
-      "enabled" : true,
       "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "enabled" : true,
       "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
       "name" : "Trivia",
       "flex" : ""
     }
